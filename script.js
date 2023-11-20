@@ -1,8 +1,34 @@
 document.addEventListener('DOMContentLoaded', function () {
     const cells = document.querySelectorAll('.cell');
+    const timerDisplay = document.getElementById('timer');
+    const resultDisplay = document.getElementById('result');
+    const playerXWinsDisplay = document.getElementById('playerXWins');
+    const playerOWinsDisplay = document.getElementById('playerOWins');
+
     let currentPlayer = 'X';
     let gameBoard = ['', '', '', '', '', '', '', '', ''];
     let gameActive = true;
+    let timeLeft = 30;
+    let timer;
+    let playerXWins = 0;
+    let playerOWins = 0;
+
+    function startTimer() {
+        timer = setInterval(() => {
+            timeLeft--;
+            timerDisplay.textContent = `Time: ${timeLeft}s`;
+
+            if (timeLeft === 0) {
+                endGame(null, 'Time\'s up!');
+            }
+        }, 1000);
+    }
+
+    function resetTimer() {
+        clearInterval(timer);
+        timeLeft = 30;
+        timerDisplay.textContent = `Time: ${timeLeft}s`;
+    }
 
     cells.forEach(cell => {
         cell.addEventListener('click', () => {
@@ -13,13 +39,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 cell.textContent = currentPlayer;
 
                 if (checkWinner()) {
-                    alert(`Player ${currentPlayer} wins!`);
-                    gameActive = false;
+                    endGame(currentPlayer, `Player ${currentPlayer} wins!`);
                 } else if (gameBoard.every(cell => cell !== '')) {
-                    alert('It\'s a tie!');
-                    gameActive = false;
+                    endGame(null, 'It\'s a tie!');
                 } else {
+                    resetTimer();
                     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+                    startTimer();
                 }
             }
         });
@@ -42,4 +68,43 @@ document.addEventListener('DOMContentLoaded', function () {
             return gameBoard[a] !== '' && gameBoard[a] === gameBoard[b] && gameBoard[a] === gameBoard[c];
         });
     }
+
+    function endGame(winner, message) {
+        gameActive = false;
+        clearInterval(timer);
+
+        if (winner !== null) {
+            resultDisplay.textContent = message;
+
+            if (winner === 'X') {
+                playerXWins++;
+                playerXWinsDisplay.textContent = playerXWins;
+            } else {
+                playerOWins++;
+                playerOWinsDisplay.textContent = playerOWins;
+            }
+        } else {
+            resultDisplay.textContent = message;
+        }
+    }
+
+    const resetButton = document.getElementById('resetButton');
+    resetButton.addEventListener('click', resetGame);
+
+    function resetGame() {
+        gameBoard = ['', '', '', '', '', '', '', '', ''];
+        currentPlayer = 'X';
+        gameActive = true;
+        timeLeft = 30;
+
+        cells.forEach(cell => {
+            cell.textContent = '';
+        });
+
+        resultDisplay.textContent = '';
+        resetTimer();
+        startTimer();
+    }
+
+    startTimer();
 });
