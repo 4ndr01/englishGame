@@ -1,122 +1,69 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const cells = document.querySelectorAll('.cell');
-    const timerDisplay = document.getElementById('timer');
-    const resultDisplay = document.getElementById('result');
-    const playerXWinsDisplay = document.getElementById('playerXWins');
-    const playerOWinsDisplay = document.getElementById('playerOWins');
+    const themeInput = document.getElementById('player1');
+    const contrainteElements = document.querySelectorAll('.contraintes');
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
 
-    let currentPlayer = 'X';
-    let gameBoard = ['', '', '', '', '', '', '', '', ''];
-    let gameActive = true;
-    let timeLeft = 30;
-    let timer;
-    let playerXWins = 0;
-    let playerOWins = 0;
+    // Ajouter un gestionnaire d'événements pour le commutateur de mode
+    darkModeToggle.addEventListener('click', toggleDarkMode);
 
-    function startTimer() {
-        timer = setInterval(() => {
-            timeLeft--;
-            timerDisplay.textContent = `Time: ${timeLeft}s`;
+    function toggleDarkMode() {
+        // Ajouter ou retirer la classe "dark-mode" du body
+        body.classList.toggle('dark-mode');
 
-            if (timeLeft === 0) {
-                endGame(null, 'Time\'s up!');
-            }
-        }, 1000);
+        // Vous pouvez également stocker le choix de l'utilisateur dans un cookie ou local storage
     }
 
-    function resetTimer() {
-        clearInterval(timer);
-        timeLeft = 30;
-        timerDisplay.textContent = `Time: ${timeLeft}s`;
-    }
-
-    //function passe mon tour
-    function passTurn() {
-        resetTimer();
-        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-        startTimer();
-    }
-
-    //function passe mon tour en cliquant sur le bouton
-    const passButton = document.getElementById('passButton');
-    passButton.addEventListener('click', passTurn);
 
 
-    cells.forEach(cell => {
-        cell.addEventListener('click', () => {
-            const index = parseInt(cell.id.split('-')[1]) - 1;
+    // Définir les contraintes pour chaque thème
+    let constraintsByTheme = {
+        "Mouvement Artistique": ["Dates", "Lettres"],
+        "Logos": ["Couleurs", "Formes", "Dates", "Types", "Lettres"],
+        "Logiciel de création": ["Dates", "Types", "Lettres"],
+        "Typographie": ["Formes", "Lettres"],
+        "Métiers": ["Types", "Lettres"],
+        "logo": ["Couleurs", "Formes", "Dates", "Types", "Lettres"],
+        "Logo": ["Couleurs", "Formes", "Dates", "Types", "Lettres"],
+        "metier": ["Types", "Lettres"],
+        "Metier": ["Types", "Lettres"],
+        "metiers": ["Types", "Lettres"],
+        "Metiers": ["Types", "Lettres"],
+        "Mouvement":["Dates", "Lettres"],
+        "mouvement":["Dates", "Lettres"],
+        "mouv":["Dates", "Lettres"],
+        "Typo":["Formes", "Lettres"],
+        "typo": ["Formes", "Lettres"],
+        "Logiciel": ["Dates","Types","Lettres",],
+        "logiciel": ["Dates", "Types", "Lettres"],
 
-            if (gameBoard[index] === '' && gameActive) {
-                gameBoard[index] = currentPlayer;
-                cell.textContent = currentPlayer;
 
-                if (checkWinner()) {
-                    endGame(currentPlayer, `Player ${currentPlayer} wins!`);
-                } else if (gameBoard.every(cell => cell !== '')) {
-                    endGame(null, 'It\'s a tie!');
+    };
+
+    // Ajouter un gestionnaire d'événements pour détecter les changements dans le champ de texte
+    themeInput.addEventListener("input", updateConstraints);
+
+    function updateConstraints() {
+        // Obtenir la valeur saisie dans le champ de texte
+        let enteredTheme = themeInput.value.trim();
+
+        // Vérifier si le thème saisi existe dans la liste des thèmes
+        if (constraintsByTheme.hasOwnProperty(enteredTheme)) {
+            let contraintes = constraintsByTheme[enteredTheme];
+
+            // Mettre à jour le contenu des éléments avec la classe "contraintes"
+            contrainteElements.forEach(function (element, index) {
+                if (index < contraintes.length) {
+                    element.textContent = "Contrainte " + (index + 1) + ": " + contraintes[index];
                 } else {
-                    resetTimer();
-                    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-                    startTimer();
+                    element.textContent = "";
                 }
-            }
-        });
-    });
-
-    function checkWinner() {
-        const winningCombos = [
-            [0, 1, 2],
-            [3, 4, 5],
-            [6, 7, 8],
-            [0, 3, 6],
-            [1, 4, 7],
-            [2, 5, 8],
-            [0, 4, 8],
-            [2, 4, 6]
-        ];
-
-        return winningCombos.some(combo => {
-            const [a, b, c] = combo;
-            return gameBoard[a] !== '' && gameBoard[a] === gameBoard[b] && gameBoard[a] === gameBoard[c];
-        });
-    }
-
-    function endGame(winner, message) {
-        gameActive = false;
-        clearInterval(timer);
-
-        if (winner !== null) {
-            resultDisplay.textContent = message;
-
-            if (winner === 'X') {
-                playerXWins++;
-                playerXWinsDisplay.textContent = playerXWins;
-            } else {
-                playerOWins++;
-                playerOWinsDisplay.textContent = playerOWins;
-            }
+            });
         } else {
-            resultDisplay.textContent = message;
+            // Si le thème n'existe pas, effacer les contraintes
+            contrainteElements.forEach(function (element) {
+                element.textContent = "";
+            });
         }
     }
-
-    const resetButton = document.getElementById('resetButton');
-    resetButton.addEventListener('click', resetGame);
-
-    function resetGame() {
-        gameBoard = ['', '', '', '', '', '', '', '', ''];
-        currentPlayer = 'X';
-        gameActive = true;
-        timeLeft = 30;
-
-        cells.forEach(cell => {
-            cell.textContent = '';
-        });
-
-        resultDisplay.textContent = '';
-        resetTimer();
-        startTimer();
-    }
-
-    startTimer();
 });

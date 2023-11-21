@@ -6,54 +6,25 @@
     <title>Morpion</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
+<header>
+    <img src="logo/logo-02.svg" alt="logo" class="logo">
+
+    <a href="index.php" class="title">Game rules</a>
+</header>
 <body>
-<div id="scoreboard">
-    <h2>Scoreboard</h2>
-    <table>
-        <thead>
-        <tr>
-            <th>Player</th>
-            <th>Wins</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr id="playerXRow">
-            <td>Player X</td>
-            <td id="playerXWins">0</td>
-        </tr>
-        <tr id="playerORow">
-            <td>Player O</td>
-            <td id="playerOWins">0</td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-<div class="game-container">
-
-    <div class="row">
-        <div class="cell" id="cell-1"></div>
-        <div class="cell" id="cell-2"></div>
-        <div class="cell" id="cell-3"></div>
-    </div>
-    <div class="row">
-        <div class="cell" id="cell-4"></div>
-        <div class="cell" id="cell-5"></div>
-        <div class="cell" id="cell-6"></div>
-    </div>
-    <div class="row">
-        <div class="cell" id="cell-7"></div>
-        <div class="cell" id="cell-8"></div>
-        <div class="cell" id="cell-9"></div>
-    </div>
-    <p id="result"></p>
-    <button id="resetButton">Reset Game</button>
-    <button id="passButton">Passe ton tour</button>
+<h1 class="title2">Welcome to the hint page</h1>
+<button id="darkModeToggle">Toggle Dark Mode</button>
 
 
+<label for="player1"></label><input type="text" id="player1" placeholder="Theme">
 
-</div>
+<ul class="contraintes"></ul>
+<ul class="contraintes"></ul>
+<ul class="contraintes"></ul>
+<ul class="contraintes"></ul>
+<ul class="contraintes"></ul>
 
-<div id="timer">Time: 30s</div>
 
 <script src="script.js"></script>
 </body>
