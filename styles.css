@@ -71,3 +71,30 @@ th {
 #resetButton:hover {
     background-color: #45a049;
 }
+
+#playAgainButton {
+    display: none;
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#playAgainButton:hover {
+    background-color: #45a049;
+}
+
+#passButton {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}

@@ -30,6 +30,18 @@ document.addEventListener('DOMContentLoaded', function () {
         timerDisplay.textContent = `Time: ${timeLeft}s`;
     }
 
+    //function passe mon tour
+    function passTurn() {
+        resetTimer();
+        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+        startTimer();
+    }
+
+    //function passe mon tour en cliquant sur le bouton
+    const passButton = document.getElementById('passButton');
+    passButton.addEventListener('click', passTurn);
+
+
     cells.forEach(cell => {
         cell.addEventListener('click', () => {
             const index = parseInt(cell.id.split('-')[1]) - 1;
