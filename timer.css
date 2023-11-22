@@ -234,3 +234,16 @@ body {
 
 
 /* Add any additional styling as needed */
+
+#reset {
+    background-color: #F7958E;
+    color: #F7958E;
+    width: 35px; /* Définissez la largeur du bouton */
+    height: 35px; /* Définissez la hauteur du bouton */
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+
+
+}
+

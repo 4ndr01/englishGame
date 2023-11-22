@@ -111,3 +111,24 @@ function displayTimeLeft (timeLeft){ //displays time on the input
 
 pauseBtn.addEventListener('click',pauseTimer);
 
+
+const resetBtn = document.getElementById('reset');
+resetBtn.addEventListener('click', resetTimer);
+
+function resetTimer() {
+    clearInterval(intervalTimer);
+    isStarted = false;
+    isPaused = false;
+    wholeTime = 0.5 * 60; // Réinitialise le temps total
+    displayTimeLeft(wholeTime);
+    update(wholeTime, wholeTime);
+
+    setterBtns.forEach(function(btn) {
+        btn.disabled = false;
+        btn.style.opacity = 1;
+    });
+
+    pauseBtn.classList.remove('pause');
+    pauseBtn.classList.add('play');
+}
+
