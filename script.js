@@ -12,96 +12,147 @@ document.addEventListener('DOMContentLoaded', function () {
     const randomFormeButton = document.getElementById('randomFormeButton');
     const randomFormeDisplay = document.getElementById('randomFormeDisplay');
 
+    // Tableau pour stocker les formes déjà sélectionnées
+    let selectedFormes = [];
+
+// Fonction pour obtenir trois formes aléatoires distinctes
+    function getRandomFormes() {
+        // Récupérer le tableau des formes
+        let formes = ["Carré", "Rond", "Triangle", "Rectangle", "Hexagone", "Octogone", "Losange"];
+
+        // Choisir trois formes aléatoires distinctes
+        let randomFormes = [];
+        for (let i = 0; i < 3; i++) {
+            let randomIndex;
+            do {
+                randomIndex = Math.floor(Math.random() * formes.length);
+            } while (selectedFormes.includes(formes[randomIndex]));
+
+            randomFormes.push(formes[randomIndex]);
+            selectedFormes.push(formes[randomIndex]);
+        }
+
+        // Réinitialiser le tableau des formes sélectionnées après avoir choisi trois formes
+        selectedFormes = [];
+
+        return randomFormes;
+    }
+
+// Utilisation dans votre fonction d'affichage
     randomFormeButton.addEventListener('click', displayRandomForme);
 
     function displayRandomForme() {
         // Afficher la forme aléatoire
-        randomFormeDisplay.textContent = "Forme aléatoire : " + getRandomForme();
+        randomFormeDisplay.textContent = "Random shape: " + getRandomFormes();
     }
 
-    function getRandomForme(){
-        // Récupérer le tableau des formes
-        let formes = ["Carré", "Rond", "Triangle", "Rectangle", "Ovale", "Hexagone", "Octogone", "Losange", "Coeur", "Etoile", "Croix", "Pentagone", "Trapeze", "Parallélogramme", "Cercle", "Cone", "Cylindre", "Cube", "Pyramide", "Sphère", "Prisme", "Diamant", "Losange", "Ovale"];
 
-        // Choisir une forme aléatoire
-        let randomForme = [];
+
+// Tableau pour stocker les lettres déjà sélectionnées
+    let selectedLetters = [];
+
+// Fonction pour obtenir trois lettres aléatoires distinctes
+    function getRandomLetters() {
+        // Récupérer le tableau des lettres
+        let letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W"];
+
+        // Choisir trois lettres aléatoires distinctes
+        let randomLetters = [];
         for (let i = 0; i < 3; i++) {
-            let randomIndex = Math.floor(Math.random() * formes.length);
-            randomForme.push(formes[randomIndex]);
+            let randomIndex;
+            do {
+                randomIndex = Math.floor(Math.random() * letters.length);
+            } while (selectedLetters.includes(letters[randomIndex]));
+
+            randomLetters.push(letters[randomIndex]);
+            selectedLetters.push(letters[randomIndex]);
         }
 
-        return randomForme;
+        // Réinitialiser le tableau des lettres sélectionnées après avoir choisi trois lettres
+        selectedLetters = [];
+
+        return randomLetters;
     }
 
-
-
+// Utilisation dans votre fonction d'affichage
     randomLetterButton.addEventListener('click', displayRandomLetter);
 
     function displayRandomLetter() {
         // Afficher la lettre aléatoire
-        randomLetterDisplay.textContent = "Lettre aléatoire : " + getRandomLetter();
-
+        randomLetterDisplay.textContent = "Random letter: " + getRandomLetters();
     }
 
-    function getRandomLetter() {
-        // Récupérer le tableau des lettres
-        let letters = ["A", "B", "C", "D", "E", "F", "G", "H","I","J","K","L","M","N","O","P","Q","R","S","T","U", "V", "W", "X", "Y", "Z"];
 
-        let randomLetter = [];
+
+    // Tableau pour stocker les dates déjà sélectionnées
+    let selectedDates = [];
+
+// Fonction pour obtenir trois dates aléatoires distinctes
+    function getRandomDates() {
+        // Récupérer le tableau des dates
+        let dates = ["1500-1700", "1700-1900", "1900-2000", "2000-2020"];
+
+        // Choisir trois dates aléatoires distinctes
+        let randomDates = [];
         for (let i = 0; i < 3; i++) {
-            // Choisir une lettre aléatoire
-            let randomIndex = Math.floor(Math.random() * letters.length);
-            randomLetter.push(letters[randomIndex]);
+            let randomIndex;
+            do {
+                randomIndex = Math.floor(Math.random() * dates.length);
+            } while (selectedDates.includes(dates[randomIndex]));
+
+            randomDates.push(dates[randomIndex]);
+            selectedDates.push(dates[randomIndex]);
         }
 
-        return randomLetter;
+        // Réinitialiser le tableau des dates sélectionnées après avoir choisi trois dates
+        selectedDates = [];
+
+        return randomDates;
     }
 
-
+// Utilisation dans votre fonction d'affichage
     randomDateButton.addEventListener('click', displayRandomDate);
 
     function displayRandomDate() {
         // Afficher la date aléatoire
-        randomDateDisplay.textContent = "Date aléatoire : " + getRandomDate();
+        randomDateDisplay.textContent = "Random date: " + getRandomDates();
     }
 
-    function getRandomDate() {
-        // Récupérer le tableau des dates
-        let dates = ["1998", "2000", "2002", "2004", "2006", "2008", "2010", "2012","2014","2016","2018","2020"];
+// Tableau pour stocker les couleurs déjà sélectionnées
+    let selectedColors = [];
 
-        // Choisir une date aléatoire
-        let randomDate = [];
-        for (let i = 0; i < 3; i++) {
-            let randomIndex = Math.floor(Math.random() * dates.length);
-            randomDate.push(dates[randomIndex]);
-        }
-
-        return randomDate;
-    }
-
-    // Ajouter un gestionnaire d'événements pour le bouton de couleur aléatoire
+// Ajouter un gestionnaire d'événements pour le bouton de couleur aléatoire
     randomColorButton.addEventListener('click', displayRandomColor);
 
-    // Fonction pour afficher une couleur aléatoire
+// Fonction pour afficher une couleur aléatoire
     function displayRandomColor() {
         // Afficher la couleur aléatoire
-        randomColorDisplay.textContent = "Couleur aléatoire : " + getRandomColor();
+        randomColorDisplay.textContent = "Couleurs aléatoires : " + getRandomColors().join(', ');
     }
 
-    // Fonction pour obtenir une couleur aléatoire
-    function getRandomColor() {
+// Fonction pour obtenir trois couleurs aléatoires distinctes
+    function getRandomColors() {
         // Récupérer le tableau des couleurs
-        let colors = ["red", "blue", "green", "yellow", "orange", "purple", "black", "white"];
+        let colors = ["red", "blue", "green", "yellow", "orange", "purple", "black", "white", "brown", "grey"];
 
-        // Choisir une couleur aléatoire
-        let randomColor = [];
+        // Choisir trois couleurs aléatoires distinctes
+        let randomColors = [];
         for (let i = 0; i < 3; i++) {
-            let randomIndex = Math.floor(Math.random() * colors.length);
-            randomColor.push(colors[randomIndex]);
+            let randomIndex;
+            do {
+                randomIndex = Math.floor(Math.random() * colors.length);
+            } while (selectedColors.includes(colors[randomIndex])); // Vérifier si la couleur est déjà sélectionnée
+
+            randomColors.push(colors[randomIndex]);
+            selectedColors.push(colors[randomIndex]);
         }
 
-        return randomColor;
+        // Réinitialiser le tableau des couleurs sélectionnées après avoir choisi trois couleurs
+        selectedColors = [];
+
+        return randomColors;
     }
+
 
     // Ajouter un gestionnaire d'événements pour le commutateur de mode
     darkModeToggle.addEventListener('click', toggleDarkMode);
@@ -117,24 +168,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Définir les contraintes pour chaque thème
     let constraintsByTheme = {
-        "Mouvement Artistique": ["Dates", "Lettres"],
-        "Logos": ["Couleurs", "Formes", "Dates", "Types", "Lettres"],
-        "Logiciel de création": ["Dates", "Types", "Lettres"],
-        "Typographie": ["Formes", "Lettres"],
-        "Métiers": ["Types", "Lettres"],
-        "logo": ["Couleurs", "Formes", "Dates", "Types", "Lettres"],
-        "Logo": ["Couleurs", "Formes", "Dates", "Types", "Lettres"],
-        "metier": ["Types", "Lettres"],
-        "Metier": ["Types", "Lettres"],
-        "metiers": ["Types", "Lettres"],
-        "Metiers": ["Types", "Lettres"],
-        "Mouvement":["Dates", "Lettres"],
-        "mouvement":["Dates", "Lettres"],
-        "mouv":["Dates", "Lettres"],
-        "Typo":["Formes", "Lettres"],
-        "typo": ["Formes", "Lettres"],
-        "Logiciel": ["Dates","Types","Lettres",],
-        "logiciel": ["Dates", "Types", "Lettres"],
+        "Artistic movement": ["Date", "Letter"],
+        "Logos": ["Color", "Shape", "Date", "Type", "Letter"],
+        "Creation software": ["Date", "Type", "Letter"],
+        "Typography": ["Shape", "Letter"],
+        "Professions": ["Type", "Letter"],
+        "logo": ["Color", "Shape", "Date", "Type", "Letter"],
+        "Logo": ["Color", "Shape", "Date", "Type", "Letter"],
+        "Profe": ["Type", "Letter"],
+        "Profes": ["Type", "Letter"],
+        "profession": ["Type", "Lettre"],
+        "Prof": ["Type", "Letter"],
+        "Movement":["Date", "Letter"],
+        "movement":["Date", "Letter"],
+        "mov":["Date", "Letter"],
+        "Typo":["Shape", "Letter"],
+        "typo": ["Shape", "Letter"],
+        "Software": ["Date","Type","Letter",],
+        "software": ["Date", "Type", "Letter"],
 
 
     };
