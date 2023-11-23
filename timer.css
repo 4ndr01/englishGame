@@ -1,5 +1,96 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300');
 
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #F7958E;
+    width: 100%;
+    height: 5em;
+}
+
+img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    margin-left: 2rem;
+}
+
+.title-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: #F7958E;
+    width: 100%;
+    height: 5rem;
+    margin-right: 6rem;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+.title {
+    font-size: 1rem;
+    color: white;
+    margin: 0 1rem;
+
+
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem;
+}
+
+.setters {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.setters div {
+    display: flex;
+    flex-direction: column;
+    margin: 0 1rem;
+}
+
+.circle {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 1rem;
+}
+
+.controlls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.display-remain-time {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+button {
+    padding: 0.5rem;
+    margin: 0.5rem;
+    cursor: pointer;
+}
+
 button[data-setter] {
     outline: none;
     background: transparent;
@@ -100,141 +191,6 @@ button[data-setter]:hover {
     transition: transform 0.7s;
 }
 
-
-body {
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    margin: 0;
-    background-color: #f5f5f5;
-}
-
-
-
-header{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 11rem;
-    background-color: rgb(206, 151, 151);
-}
-
-.logo{
-    width: 40rem;
-    height: 40rem;
-    margin-left: 2rem;
-}
-
-.logo:hover{
-    transform: scale(1.1);
-    transition: transform 0.5s;
-}
-
-
-.title{
-    font-size: 3rem;
-    color: white;
-    margin-right: 2rem;
-}
-
-.title2{
-    font-size: 2rem;
-    margin-right: 2rem;
-}
-input{
-    margin-top: 1rem;
-    width: 20rem;
-    height: 2rem;
-    margin-right: 2rem;
-    border-radius: 0.5rem;
-    padding-left: 1rem;
-}
-
-input:hover{
-    transform: scale(1.1);
-    transition: transform 0.5s;
-}
-
-/* Ajoutez ces styles pour le mode sombre */
-.dark-mode {
-    background-color: #333;
-    color: #fff;
-}
-
-.dark-mode input,
-.dark-mode button {
-    background-color: #555;
-    color: #fff;
-}
-
-#darkModeToggle {
-    border-radius: 0.5rem;
-    height: 3rem;
-    margin-right: 2rem;
-    background-color: #555;
-    border: none;
-
-}
-
-#darkModeToggle:hover {
-    transform: scale(1.1);
-    transition: transform 0.5s;
-}
-
-/* Styles pour les écrans larges */
-body {
-    font-size: 16px;
-}
-
-/* Ajoutez des styles spécifiques pour les écrans de taille moyenne */
-@media screen and (max-width: 768px) {
-    body {
-        font-size: 14px;
-    }
-}
-
-/* Ajoutez des styles spécifiques pour les petits écrans (smartphones, etc.) */
-@media screen and (max-width: 480px) {
-    body {
-        font-size: 12px;
-    }
-
-    /* Ajoutez d'autres styles spécifiques pour les petits écrans si nécessaire */
-}
-
-
-/* Ajoutez des styles spécifiques pour les écrans de taille moyenne */
-@media screen and (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .logo {
-        margin-bottom: 10px;
-    }
-
-    .title {
-        font-size: 1.2rem;
-    }
-}
-
-/* Ajoutez des styles spécifiques pour les petits écrans (smartphones, etc.) */
-@media screen and (max-width: 480px) {
-    .logo {
-        width: 80px; /* Ajustez la taille du logo pour les petits écrans */
-    }
-}
-
-
-
-/* Add any additional styling as needed */
-
 #reset {
     background-color: #59BDBD;
     color: black;
@@ -252,38 +208,3 @@ body {
     transform: scale(1.1);
     transition: transform 0.5s;
 }
-
-.title{
-    font-size: 2rem;
-    color: white;
-    margin-right: 2rem;
-}
-
-.title-div{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    background-color: rgb(128, 128, 128);
-
-}
-
-div{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2rem;
-}
-
-button{
-    width: 10rem;
-    height: 3rem;
-    border-radius: 0.5rem;
-    margin-top: 1rem;
-
-    border: none;
-    cursor: pointer;
-}
-
