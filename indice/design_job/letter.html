@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Type</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #007bff;
+        }
+
+        .colorThemesContainer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .themeBox {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .themeBox:hover {
+            transform: scale(1.1);
+        }
+
+        .themeBox:nth-child(odd) {
+            background-color: #ffc107;
+        }
+
+        .themeBox:nth-child(even) {
+            background-color: #28a745;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #555;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Typographie</h1>
+
+
+<div class="colorThemesContainer">
+    <div class="themeBox"></div>
+    <div class="themeBox"></div>
+    <div class="themeBox"></div>
+    <div class="themeBox"></div>
+    <div class="themeBox"></div>
+    <div class="themeBox"></div>
+</div>
+
+<footer>
+
+</footer>
+
+<script src="letter.js"></script>
+</body>
+</html>

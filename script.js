@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const themeInput = document.getElementById('player1');
+
     const contrainteElements = document.querySelectorAll('.contraintes');
     const darkModeToggle = document.getElementById('darkModeToggle');
     const body = document.body;
@@ -11,6 +12,39 @@ document.addEventListener('DOMContentLoaded', function () {
     const randomLetterDisplay = document.getElementById('randomLetterDisplay');
     const randomFormeButton = document.getElementById('randomFormeButton');
     const randomFormeDisplay = document.getElementById('randomFormeDisplay');
+    const randomTypoButton = document.getElementById('randomTypoButton');
+    const randomTypoDisplay = document.getElementById('randomTypoDisplay');
+
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Sélectionnez tous les éléments avec la classe 'hover'
+        let hoverElements = document.querySelectorAll('.hover');
+
+        // Ajoutez des écouteurs d'événements pour le survol
+        hoverElements.forEach(function(element) {
+            element.addEventListener('mouseenter', function() {
+                element.classList.add('flip');
+            });
+
+            element.addEventListener('mouseleave', function() {
+                element.classList.remove('flip');
+            });
+
+            // Ajoutez également des écouteurs d'événements pour les écrans tactiles
+            element.addEventListener('touchstart', function() {
+                element.classList.add('flip');
+            });
+
+            element.addEventListener('touchend', function() {
+                element.classList.remove('flip');
+            });
+        });
+    });
+
+
+
+
 
     // Tableau pour stocker les formes déjà sélectionnées
     let selectedFormes = [];
@@ -24,6 +58,37 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 10); // Délai court pour permettre le rendu initial sans transition
     }
 
+
+    function getRandomTypo() {
+        // Récupérer le tableau des formes
+        let typo = ["Arial", "Times New Roman", "Verdana", "Helvetica", "Tahoma", "Trebuchet MS", "Impact", "Comic Sans MS", "Courier New", "Brush Script MT"];
+
+        // Choisir trois formes aléatoires distinctes
+        let randomTypo = [];
+        for (let i = 0; i < 3; i++) {
+            let randomIndex;
+            do {
+                randomIndex = Math.floor(Math.random() * typo.length);
+            } while (selectedFormes.includes(typo[randomIndex]));
+
+            randomTypo.push(typo[randomIndex]);
+            selectedFormes.push(typo[randomIndex]);
+        }
+
+        // Réinitialiser le tableau des formes sélectionnées après avoir choisi trois formes
+        selectedFormes = [];
+
+        return randomTypo;
+    }
+
+    randomTypoButton.addEventListener('click', displayRandomTypo);
+
+
+    function displayRandomTypo() {
+        // Afficher la forme aléatoire
+        randomTypoDisplay.textContent = "Random typo: " + getRandomTypo();
+        fadeIn(randomTypoDisplay, "Random typo: " + getRandomTypo());
+    }
 
 // Fonction pour obtenir trois formes aléatoires distinctes
     function getRandomFormes() {
@@ -57,7 +122,6 @@ document.addEventListener('DOMContentLoaded', function () {
         fadeIn(randomFormeDisplay, "Random shape: " + getRandomFormes());
 
     }
-
 
 
 // Tableau pour stocker les lettres déjà sélectionnées
@@ -94,7 +158,6 @@ document.addEventListener('DOMContentLoaded', function () {
         randomLetterDisplay.textContent = "Random letter: " + getRandomLetters();
         fadeIn(randomLetterDisplay, "Random letter: " + getRandomLetters());
     }
-
 
 
     // Tableau pour stocker les dates déjà sélectionnées
@@ -180,55 +243,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
+    
 
-    // Définir les contraintes pour chaque thème
-    let constraintsByTheme = {
-        "Artistic movement": ["Date", "Letter"],
-        "Logos": ["Color", "Shape", "Date", "Type", "Letter"],
-        "Creation software": ["Date", "Type", "Letter"],
-        "Typography": ["Shape", "Letter"],
-        "Professions": ["Type", "Letter"],
-        "logo": ["Color", "Shape", "Date", "Type", "Letter"],
-        "Logo": ["Color", "Shape", "Date", "Type", "Letter"],
-        "Profe": ["Type", "Letter"],
-        "Profes": ["Type", "Letter"],
-        "profession": ["Type", "Lettre"],
-        "Prof": ["Type", "Letter"],
-        "Movement":["Date", "Letter"],
-        "movement":["Date", "Letter"],
-        "mov":["Date", "Letter"],
-        "Typo":["Shape", "Letter"],
-        "typo": ["Shape", "Letter"],
-        "Software": ["Date","Type","Letter",],
-        "software": ["Date", "Type", "Letter"],
-
-
-    };
-
-    // Ajouter un gestionnaire d'événements pour détecter les changements dans le champ de texte
-    themeInput.addEventListener("input", updateConstraints);
-
-    function updateConstraints() {
-        // Obtenir la valeur saisie dans le champ de texte
-        let enteredTheme = themeInput.value.trim();
-
-        // Vérifier si le thème saisi existe dans la liste des thèmes
-        if (constraintsByTheme.hasOwnProperty(enteredTheme)) {
-            let contraintes = constraintsByTheme[enteredTheme];
-
-            // Mettre à jour le contenu des éléments avec la classe "contraintes"
-            contrainteElements.forEach(function (element, index) {
-                if (index < contraintes.length) {
-                    element.textContent = "Contrainte " + (index + 1) + ": " + contraintes[index];
-                } else {
-                    element.textContent = "";
-                }
-            });
-        } else {
-            // Si le thème n'existe pas, effacer les contraintes
-            contrainteElements.forEach(function (element) {
-                element.textContent = "";
-            });
-        }
-    }
 });

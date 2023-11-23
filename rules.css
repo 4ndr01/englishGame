@@ -1,0 +1,59 @@
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    background-color: #F7958E;
+    padding: 10px; /* Ajout d'un padding pour plus d'espace autour du contenu du header */
+}
+
+.logo {
+    width: 100%; /* Utiliser la largeur maximale disponible pour le logo */
+    max-width: 200px; /* Définir une largeur maximale pour éviter le débordement sur de petits écrans */
+    height: auto; /* Garantir que la hauteur s'ajuste automatiquement en fonction de la largeur */
+    margin-left: 2rem;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+    transition: transform 0.5s;
+}
+
+.title-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; /* Centrer les éléments verticalement sur les écrans plus petits */
+    width: 100%;
+    background-color: #F7958E;
+    padding: 10px; /* Ajout d'un padding pour plus d'espace autour du contenu de title-div */
+    margin-right: 10rem;
+}
+
+.title {
+    font-size: 1rem;
+    color: black;
+    margin-right: 2rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+.title4:hover {
+    transform: scale(1.1);
+    transition: transform 0.5s;
+}
+
+.title:hover {
+    transform: scale(1.1);
+    transition: transform 0.5s;
+}
+
+.title2 {
+    font-size: 2rem;
+    margin-right: 2rem;
+    text-align: center; /* Centrer le texte sur les écrans plus petits */
+    text-decoration: none;
+}

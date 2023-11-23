@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-
     <title>Cross It</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 </head>
 <body>
 
@@ -14,42 +14,118 @@
         <img src="logo/logo-02.svg" alt="logo" class="logo">
     </a>
     <div class="title-div">
-        <a href="index.php" class="title">Game rules</a>
-        <a href="timer.html" class="title">Timer</a>
+        <a href="rules.html" class="title">Game rules</a>
+        <a href="timer.html" class="title42">Timer</a>
     </div>
 </header>
 
 <h1 class="title2">Welcome to the hint page</h1>
 
-<button id="darkModeToggle">Dark Mode</button>
 
-<label for="player1"></label><input type="text" id="player1" placeholder="Theme">
 
-<ul class="contraintes"></ul>
-<ul class="contraintes"></ul>
-<ul class="contraintes"></ul>
-<ul class="contraintes"></ul>
-<ul class="contraintes"></ul>
+<div class="wrapper">
+    <div class="col_third">
+
+
+                <div class="box1">
+                    <p>Logo</p>
+                    <a  href="./indice/color.html" class="box2">Colors</a>
+                    <a href="indice/type.html" class="box3">Typographie</a>
+                    <a href="indice/shape.html" class="box4">Shape</a>
+                </div>
+
+
+
+    </div>
+
+    <div class="col_third">
+        <div class="hover panel">
+            <div class="hover panel">
+
+            <div class="box1">
+                    <p>Art movement</p>
+                    <a href="indice/art_mov/letter.html" class="box2">Letters</a>
+                    <a href="indice/art_mov/letter.html" class="box3">Typographie</a>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <div class="col_fourth">
+        <div class="hover panel">
+<div class="col_third">
+        <div class="hover panel">
+            <div class="hover panel">
+
+            <div class="box1">
+                    <p>Art movement</p>
+                    <a href="indice/art_mov/letter.html" class="box2">Letters</a>
+                    <a href="indice/art_mov/date.html" class="box3">Date</a>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+                <div class="box1">
+                    <p>Design jobs</p>
+                    <a href="indice/design_job/type.html">Type</a>
+                    <a href="indice/design_job/letter.html">Letter</a>
+
+                </div>
+
+
+        </div>
+    </div>
+
+    <div class="col_third end">
+        <div class="hover panel">
+            <div class="front">
+                <div class="box1">
+                    <p>Software</p>
+                    <a href="indice/software/letter.html" class="box2">Letters</a>
+                    <a href="indice/software/type.html" class="box2">Types</a>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
 
 <div>
     <div class="fade-in" id="randomColorDisplay"></div>
-    <button id="randomColorButton">Display a color</button>
+    <button class="button is-primary is-outlined"  id="randomColorButton">Display a color</button>
 </div>
 
 <div class="main">
     <div>
         <div class="fade-in" id="randomDateDisplay"></div>
-        <button id="randomDateButton">Display a date</button>
+        <button  class="button is-primary is-outlined" id="randomDateButton">Display a date</button>
     </div>
 
     <div>
         <div class="fade-in" id="randomLetterDisplay"></div>
-        <button id="randomLetterButton">Display a letter</button>
+        <button class="button is-primary is-outlined" id="randomLetterButton">Display a letter</button>
     </div>
 
     <div>
         <div class="fade-in" id="randomFormeDisplay"></div>
-        <button id="randomFormeButton">Display a shape</button>
+        <button class="button is-primary is-outlined"  id="randomFormeButton">Display a shape</button>
+    </div>
+
+    <div>
+        <div class="fade-in" id="randomTypoDisplay"></div>
+        <button class="button is-primary is-outlined" id="randomTypoButton">Display an typo</button>
     </div>
 </div>
 

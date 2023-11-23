@@ -10,96 +10,83 @@ body {
 
 header {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     width: 100%;
-    height: auto;
-    background-color:#F7958E;
-    padding: 10px; /* Ajout d'un padding pour plus d'espace autour du contenu du header */
+    background-color: #F7958E;
+    padding: 10px;
 }
 
 .logo {
-    width: 100%; /* Utiliser la largeur maximale disponible pour le logo */
-    max-width: 200px; /* Définir une largeur maximale pour éviter le débordement sur de petits écrans */
-    height: auto; /* Garantir que la hauteur s'ajuste automatiquement en fonction de la largeur */
-    margin-left: 2rem;
-}
-
-.logo:hover {
-    transform: scale(1.1);
-    transition: transform 0.5s;
+    width: 100px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
 }
 
 .title-div {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    align-items: center; /* Centrer les éléments verticalement sur les écrans plus petits */
+    align-items: center;
     width: 100%;
     background-color: #F7958E;
-    padding: 10px; /* Ajout d'un padding pour plus d'espace autour du contenu de title-div */
-    margin-right: 10rem;
+    padding: 10px;
+    margin: 0;
 }
 
-.title {
-    font-size: 1rem;
-    color: white;
-    margin-right: 2rem;
-    text-decoration: none;
-    font-weight: bold;
-}
 
-.title:hover {
+.title, .title4:hover {
     transform: scale(1.1);
     transition: transform 0.5s;
 }
 
 .title2 {
     font-size: 2rem;
-    margin-right: 2rem;
-    text-align: center; /* Centrer le texte sur les écrans plus petits */
-    text-decoration: none;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 input {
     margin-top: 1rem;
-    width: 50%; /* Utiliser la largeur maximale disponible pour l'entrée */
+    width: 80%;
     height: 2rem;
     border-radius: 0.5rem;
     padding-left: 1rem;
 }
 
-/* Ajout d'un padding aux boutons pour une meilleure expérience de clic */
-/* Styles pour la section principale */
 .main {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around; /* Ajout d'espacement entre les éléments */
-    margin: 20px; /* Ajout de marges autour de la section principale */
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
 }
 
-/* Styles pour chaque élément de la section */
 .main div {
     text-align: center;
+    flex: 0 0 48%; /* Adjust the width for responsiveness */
 }
 
-/* Styles pour les conteneurs d'affichage */
 #randomDateDisplay,
 #randomColorDisplay,
 #randomLetterDisplay,
+#randomTypoDisplay,
 #randomFormeDisplay {
+    width: 100%; /* Make the display containers responsive */
+    height: 100px;
     border: 2px solid #333;
     padding: 20px;
-    border-radius: 5px;
     margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.5s;
 
 }
 
-/* Styles pour les boutons */
 button {
-    padding: 10px 20px;
+    padding: 10px;
     margin: 10px;
     font-size: 16px;
     cursor: pointer;
@@ -107,72 +94,324 @@ button {
     border-radius: 5px;
     background-color: #59BDBD;
     color: #fff;
-    transition: background-color 0.3s ease; /* Ajout d'une transition pour une animation plus fluide */
-
+    transition: background-color 0.3s ease, transform 0.5s;
 }
 
 button:hover {
     background-color: #2980b9;
     transform: scale(1.1);
-    transition: transform 0.5s;
 }
 
-/* Changement de couleur au survol du bouton */
-button:hover {
-    background-color: #2980b9;
-}
-
-/* Ajout d'une marge en bas pour séparer les boutons */
 button:not(:last-child) {
     margin-bottom: 10px;
 }
 
-/* Ajout de styles pour le mode sombre sur les boutons */
 .dark-mode button {
     background-color: #555;
     color: #fff;
 }
 
-
-
-/* Styles pour les écrans larges */
 body {
     font-size: 16px;
 }
 
-/* Ajout de styles spécifiques pour les écrans de taille moyenne */
 @media screen and (max-width: 768px) {
     body {
         font-size: 14px;
     }
 
     header {
-        flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
     }
 
     .logo {
-        max-width: 100%; /* Utiliser la largeur maximale sur les écrans plus petits */
+        max-width: 80px;
+    }
+
+    .title-div {
+        margin-right: 0;
+        align-items: center;
+    }
+
+    input {
+        width: 100%;
     }
 }
 
-/* Ajout de styles spécifiques pour les petits écrans (smartphones, etc.) */
 @media screen and (max-width: 480px) {
     body {
         font-size: 12px;
     }
 
     header {
-        padding: 5px; /* Réduire le padding sur les petits écrans */
+        padding: 5px;
     }
 
     .logo {
-        width: 80px;
-        max-width: 80px; /* Ajustez la taille du logo pour les petits écrans */
+        width: 60px;
+        max-width: 60px;
     }
 }
 
-/* Ajoutez ces styles pour l'effet fade */
+
+/* Styles pour les boutons */
+button {
+    padding: 10px 20px;
+
+    & body {
+        font-family: 'Arial', sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        background-color: #f5f5f5;
+    }
+
+    & header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        background-color: #F7958E;
+        padding: 10px; /* Ajout d'un padding pour plus d'espace autour du contenu du header */
+    }
+
+    .logo {
+        width: 100%; /* Utiliser la largeur maximale disponible pour le logo */
+        max-width: 200px; /* Définir une largeur maximale pour éviter le débordement sur de petits écrans */
+        height: auto; /* Garantir que la hauteur s'ajuste automatiquement en fonction de la largeur */
+        margin-left: 2rem;
+    }
+
+    .logo:hover {
+        transform: scale(1.1);
+        transition: transform 0.5s;
+    }
+
+    .title-div {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center; /* Centrer les éléments verticalement sur les écrans plus petits */
+        width: 100%;
+        background-color: #F7958E;
+        padding: 10px; /* Ajout d'un padding pour plus d'espace autour du contenu de title-div */
+        margin-right: 10rem;
+    }
+
+    .title {
+        font-size: 1rem;
+        color: black;
+        margin-right: 2rem;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+
+    .title4:hover {
+        transform: scale(1.1);
+        transition: transform 0.5s;
+    }
+
+    .title:hover {
+        transform: scale(1.1);
+        transition: transform 0.5s;
+    }
+
+    .title2 {
+        font-size: 2rem;
+        margin-right: 2rem;
+        text-align: center; /* Centrer le texte sur les écrans plus petits */
+        text-decoration: none;
+    }
+
+    & input {
+        margin-top: 1rem;
+        width: 50%; /* Utiliser la largeur maximale disponible pour l'entrée */
+        height: 2rem;
+        border-radius: 0.5rem;
+        padding-left: 1rem;
+    }
+
+    /* Ajout d'un padding aux boutons pour une meilleure expérience de clic */
+    /* Styles pour la section principale */
+
+    .main {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around; /* Ajout d'espacement entre les éléments */
+        margin: 20px; /* Ajout de marges autour de la section principale */
+    }
+
+    /* Styles pour chaque élément de la section */
+
+    .main div {
+        text-align: center;
+    }
+
+    /* Styles pour les conteneurs d'affichage */
+
+    #randomDateDisplay,
+    #randomColorDisplay,
+    #randomLetterDisplay,
+    #randomTypoDisplay,
+    #randomFormeDisplay {
+        padding: 20px;
+        margin: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease; /* Ajout d'une transition pour une animation plus fluide */
+
+    }
+
+    & button:hover {
+        background-color: #2980b9;
+        transform: scale(1.1);
+        transition: transform 0.5s;
+    }
+
+    /* Changement de couleur au survol du bouton */
+
+    & button:hover {
+        background-color: #2980b9;
+    }
+
+    /* Ajout d'une marge en bas pour séparer les boutons */
+
+    & button:not(:last-child) {
+        margin-bottom: 10px;
+    }
+
+    /* Ajout de styles pour le mode sombre sur les boutons */
+
+    .dark-mode button {
+        background-color: #555;
+        color: #fff;
+    }
+
+
+    /* Styles pour les écrans larges */
+
+    & body {
+        font-size: 16px;
+    }
+
+    /* Ajout de styles spécifiques pour les écrans de taille moyenne */
+    @media screen and (max-width: 768px) {
+        body {
+            font-size: 14px;
+        }
+
+        header {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .logo {
+            max-width: 100%; /* Utiliser la largeur maximale sur les écrans plus petits */
+        }
+    }
+
+    /* Ajout de styles spécifiques pour les petits écrans (smartphones, etc.) */
+    @media screen and (max-width: 480px) {
+        body {
+            font-size: 12px;
+        }
+
+        header {
+            padding: 5px; /* Réduire le padding sur les petits écrans */
+        }
+
+        .logo {
+            width: 80px;
+            max-width: 80px; /* Ajustez la taille du logo pour les petits écrans */
+        }
+    }
+
+    /* Ajoutez ces styles pour l'effet fade */
+
+    .fade-in {
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    .fade-in.active {
+        opacity: 1;
+    }
+
+
+    .columns {
+        margin-top: 20rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 5rem;
+        width: 5rem;
+    }
+
+    & body {
+        margin: 20px;
+        font-family: Arial, Tahoma, sans-serif;
+        font-size: 20px;
+
+        text-align: center;
+    }
+
+    & p {
+        color: #ffffff;
+    }
+}
+
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.col_third,
+.col_fourth,
+.col_third.end {
+    flex: 0 0 calc(33.333% - 20px);
+    margin-bottom: 20px;
+}
+
+.box1 {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.box1 p {
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.box1 a {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.box1 a:hover {
+    background-color: #2980b9;
+}
+
 .fade-in {
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
@@ -181,3 +420,12 @@ body {
 .fade-in.active {
     opacity: 1;
 }
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+
