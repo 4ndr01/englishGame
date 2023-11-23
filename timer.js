@@ -6,6 +6,7 @@ let length = Math.PI * 2 * 100;
 
 progressBar.style.strokeDasharray = length;
 
+
 function update(value, timePercent) {
     var offset = - length - length * value / (timePercent);
     progressBar.style.strokeDashoffset = offset;
@@ -119,7 +120,7 @@ function resetTimer() {
     clearInterval(intervalTimer);
     isStarted = false;
     isPaused = false;
-    wholeTime = 0.5 * 60; // Réinitialise le temps total
+    wholeTime =  0.5 * 60;
     displayTimeLeft(wholeTime);
     update(wholeTime, wholeTime);
 

@@ -15,6 +15,16 @@ document.addEventListener('DOMContentLoaded', function () {
     // Tableau pour stocker les formes déjà sélectionnées
     let selectedFormes = [];
 
+
+    function fadeIn(element, content) {
+        element.classList.remove('active'); // Supprimer la classe active pour déclencher une nouvelle transition
+        setTimeout(function () {
+            element.textContent = content;
+            element.classList.add('active'); // Ajouter la classe active pour déclencher l'effet fade-in
+        }, 10); // Délai court pour permettre le rendu initial sans transition
+    }
+
+
 // Fonction pour obtenir trois formes aléatoires distinctes
     function getRandomFormes() {
         // Récupérer le tableau des formes
@@ -44,6 +54,8 @@ document.addEventListener('DOMContentLoaded', function () {
     function displayRandomForme() {
         // Afficher la forme aléatoire
         randomFormeDisplay.textContent = "Random shape: " + getRandomFormes();
+        fadeIn(randomFormeDisplay, "Random shape: " + getRandomFormes());
+
     }
 
 
@@ -80,6 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function displayRandomLetter() {
         // Afficher la lettre aléatoire
         randomLetterDisplay.textContent = "Random letter: " + getRandomLetters();
+        fadeIn(randomLetterDisplay, "Random letter: " + getRandomLetters());
     }
 
 
@@ -116,6 +129,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function displayRandomDate() {
         // Afficher la date aléatoire
         randomDateDisplay.textContent = "Random date: " + getRandomDates();
+        fadeIn(randomDateDisplay, "Random date: " + getRandomDates());
     }
 
 // Tableau pour stocker les couleurs déjà sélectionnées
@@ -127,7 +141,8 @@ document.addEventListener('DOMContentLoaded', function () {
 // Fonction pour afficher une couleur aléatoire
     function displayRandomColor() {
         // Afficher la couleur aléatoire
-        randomColorDisplay.textContent = "Couleurs aléatoires : " + getRandomColors().join(', ');
+        randomColorDisplay.textContent = "Random colors : " + getRandomColors().join(', ');
+        fadeIn(randomColorDisplay, "Random colors: " + getRandomColors().join(', '));
     }
 
 // Fonction pour obtenir trois couleurs aléatoires distinctes

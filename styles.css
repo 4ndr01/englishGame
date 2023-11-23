@@ -171,3 +171,13 @@ body {
         max-width: 80px; /* Ajustez la taille du logo pour les petits écrans */
     }
 }
+
+/* Ajoutez ces styles pour l'effet fade */
+.fade-in {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.fade-in.active {
+    opacity: 1;
+}
