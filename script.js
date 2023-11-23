@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // Fonction pour obtenir trois formes aléatoires distinctes
     function getRandomFormes() {
         // Récupérer le tableau des formes
-        let formes = ["Carré", "Rond", "Triangle", "Rectangle", "Hexagone", "Octogone", "Losange"];
+        let formes = ["Square", "Round", "Triangle", "Rectangle", "Hexagon", "Octogon", "Lozenge"];
 
         // Choisir trois formes aléatoires distinctes
         let randomFormes = [];
