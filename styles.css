@@ -8,6 +8,8 @@ body {
     background-color: #f5f5f5;
 }
 
+
+
 header {
     display: flex;
     flex-direction: column;
@@ -19,10 +21,16 @@ header {
 }
 
 .logo {
-    width: 100px;
+    width: 20rem;
     max-width: 100%;
     height: auto;
     margin-bottom: 10px;
+
+}
+
+.logo:hover {
+    transform: scale(1.1);
+    transition: transform 0.5s;
 }
 
 .title-div {
@@ -156,8 +164,8 @@ body {
     }
 
     .logo {
-        width: 60px;
-        max-width: 60px;
+        width: 10rem;
+        max-width: 20rem;
     }
 }
 
